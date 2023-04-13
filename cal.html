@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javscript calculator</title>
+    <link rel="stylesheet" href="cal.css">
+    <script>
+        function callnumbr(num){
+            let x = document.getElementById('res').value
+  
+  
+  if(((num=='+')&&(x.charAt(x.length-1) == '+')) || ((num=='-')&&(x.charAt(x.length-1) == '-')) || ((num=='*')&&(x.charAt(x.length-1) == '*')) || ((num=='/')&&(x.charAt(x.length-1) == '/'))) {
+    document.getElementById('res').value = x;
+}
+
+
+
+else if((x.length == 1 && x[x.length-1] =='-')&&(num == '+' || num =='*' || num == '/')){
+    document.getElementById("res").value = '-';
+
+
+}
+
+
+else if((num=='+'&& x.length==0)||(num=='*'&& x.length==0)||(num=='/'&& x.length==0)){
+document.getElementById("res").value+=x;
+
+}   
+
+else if((((num=='+')&&(x.charAt(x.length-1) == '-'))|| ((num=='+')&&(x.charAt(x.length-1) == '*')) ||((num=='+')&&(x.charAt(x.length-1) == '/')))
+ || (((num=='-')&&(x.charAt(x.length-1) == '+'))|| ((num=='-')&&(x.charAt(x.length-1) == '*')) ||((num=='-')&&(x.charAt(x.length-1) == '/'))) || 
+ (((num=='*')&&(x.charAt(x.length-1) == '+'))|| ((num=='*')&&(x.charAt(x.length-1) == '-')) ||((num=='*')&&(x.charAt(x.length-1) == '/'))) || 
+ (((num=='/')&&(x.charAt(x.length-1) == '+'))|| ((num=='/')&&(x.charAt(x.length-1) == '-')) ||((num=='/')&&(x.charAt(x.length-1) == '*')))){
+    let y = x.slice(0,-1)+num;
+            console.log(y);
+    document.getElementById("res").value =y;
+}
+
+
+else {
+document.getElementById("res").value+=num;
+}
+}
+        
+        function reset(){
+            document.getElementById('res').value='';
+        }
+        function ans(a){
+      const x = eval(document.getElementById('res').value);
+
+    document.getElementById('res').value=x;
+    debugger;
+    
+    }
+
+
+
+
+
+
+
+        </script>
+    
+        	
+</head>
+<body>
+
+   
+    <div class="container">
+  <div>
+        
+        <input type="text"  name="displayResult" id="res">
+
+    </div>
+
+<div class="disp">
+    <div class="row">
+        <input type="button" name="b7" value='7'  onclick="callnumbr(7)">
+        <input type="button" name="b8" value="8" onclick="callnumbr(8)">
+        <input type="button" name="b9" value="9" onclick="callnumbr(9)">
+        <input type="button" name="min" value=" -" onclick="callnumbr('-')">
+
+    </div>
+    <div class="row">
+        <input type="button" name="b4" value="4"onclick="callnumbr('4')">
+        <input type="button" name="b5" value="5"onclick="callnumbr('5')">
+        <input type="button" name="b6" value="6"onclick="callnumbr('6')">
+        <input type="button" name="plu" value="+"onclick="callnumbr('+')">
+
+    </div>
+    <div class="row">
+        <input type="button" name="b1" value="1"onclick="callnumbr('1')">
+        <input type="button" name="b2" value="2"onclick="callnumbr('2')">
+        <input type="button" name="b3" value="3"onclick="callnumbr('3')">
+        <input type="button" name="mul" value=" *"onclick="callnumbr('*')">
+
+    </div>
+    <div class="row">
+        <input type="button" name="b0" value="0"onclick="callnumbr('0')">
+        <input type="button" name="dot" value=". "onclick="callnumbr('.')">
+        <input type="button"class="anser" name="result" value="=" onClick="ans()">
+        <input type="button" name="divi" value=" /"onclick="callnumbr('/')">
+        
+
+    </div>
+    <div class="row">
+    <button class="cc" name="r" value="c"onclick="reset()">C</button>
+    </div>
+</div>
+</form>
+    
+</body>
+</html>
