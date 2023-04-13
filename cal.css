@@ -1,0 +1,74 @@
+body, html {
+	background: #ECEDEF;
+	margin: 0;
+	padding: 0;
+	
+}
+
+ 
+.container {
+	
+margin:10% auto;
+
+	
+	background: rgb(233, 15, 142);
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.2);
+	border-radius: 10px;
+	padding-bottom: 290px;
+	width: 310px;
+
+}
+.disp{
+
+	width: 100%;
+	height: 80px;
+	padding: px 1px;
+	border-top-left-radius: 14px;
+	border-top-right-radius: 14px;
+}
+.row {
+	width: 544px;
+	float: inline-start
+}	
+	
+
+
+	
+
+
+	
+
+.cc{
+	width: 55%;
+height: auto;
+font-weight: bold;
+font-size: x-large;
+	color: rgb(168, 36, 102);
+	padding: 1px;
+	font-style: norma;
+}
+.row input {
+  
+	width: 10%;
+	font-size:30px;
+	font-weight:bolder;
+	color: rgb(10, 20, 10);
+	background-color: rgb(255, 255, 255);
+	border-radius: 200px;
+	margin: 11px;
+	padding: 10px ;
+	
+	/* border: 2px solid black; */
+	/* border-radius: 5px; */
+  }
+
+
+  #res {
+
+    width: 305px;
+    height: 40px;
+    font-size: 100%;
+	font-weight: 200;
+	padding-top: 10px;
+border-radius: 200px;
+}
