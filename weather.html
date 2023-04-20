@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    
+body{
+
+  background-image: url("Weather.jpg");
+}
+body{
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCoKW0ooE7FQMv8B0Q4gN7xCHWRpMEmNtLag&usqp=CAU);
+  background-image: image-set();
+  
+	background-color: rgb(131, 231, 101);
+}
+h2 {
+	color: rgb(17, 2, 2);
+	font-family: verdana;
+	font-size: 250%;
+
+  }
+  #slct1,#cities{
+    width: 250px;
+    height: 30px;
+    margin-bottom: auto;
+
+  }
+  h1{
+    color: rgb(4, 17, 11);
+	font-family: verdana;
+	font-size: 250%;
+  display: inline-flex;
+  }
+#tx{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: x-large;
+}
+
+  
+  </style>
+  
+<script>
+function populate(countries,cities){
+	var countries = document.getElementById(countries);
+	var cities = document.getElementById(cities);
+	if(countries.value == "pakistan"){
+		var optionArray = ["|","karachi|Karachi","lahore|Lahore","islamabad|Islamabad"];
+	
+    }
+    else if(countries.value == "usa"){
+		var optionArray = ["|","new york|New york","london|London","texas|Texas"];
+	}
+    else console.log("null");
+    cities.innerHTML="choose city";
+    for(var option in optionArray){
+		var pair = optionArray[option].split("|");
+		var newOption = document.createElement("option");
+		newOption.value = pair[0];
+		newOption.innerHTML = pair[1];
+		cities.options.add(newOption);
+
+	}
+
+}
+
+function selectCity(props){
+        
+         
+            fetch("https://api.openweathermap.org/data/2.5/weather?q="+props+"&appid=cd0aab3ba61e4af27742fa6aa6fd4cdd").then((response)=>response.json()).then((data)=>{
+                 const cel=data.main.temp-273.15;
+                 
+                 const str="<h1> weather of "+props+" is : "+parseInt(cel)+" &#x2103;</h1>";
+                 debugger;
+                 document.getElementById('res').innerHTML= str;
+            
+            
+            
+            }).catch((error)=>console.log(error));
+                    }
+
+</script>
+</head>
+
+<body>
+  
+  <div class="w" id="res"></div>
+<h2>Choose Your Country and city</h2>
+
+<text id="tx">country :<text>
+<select id="slct1" name="slct1" onchange="populate(this.id,'cities')">
+    <option value="" selected  disabled hidden >Select Country Here</option>
+
+  
+  <option value="pakistan">Pakistan</option>
+  <option value="usa">usa</option>
+
+
+</select></body>
+
+
+  .       . . city :
+<select id="cities" name="cities" onchange="selectCity(cities.value)">
+    <option value="" selected  disabled hidden >Select City Here</option>
+
+</select>
+
+
+
+    
+</div>
+</body>
+</html>
