@@ -5,17 +5,17 @@ export const result = createContext();
 
 
 function Parent(){
-    const [result1, setResult1] = useState('');
-    const [result2, setResult2] = useState('');
-    const [result3, setResult3] = useState('');
-    const value = {setResult1,setResult2,setResult3};
+    const [rt1, setRt1] = useState('');
+    const [rt2, setRt2] = useState('');
+    const [rt3, setRt3] = useState('');
+    const value = {setRt1,setRt2,setRt3};
 
     return(
         <>
         <div className="box">
-            <div>Them Sum of Two number is = {result1}</div>
-            <div>Them Sub of Two number is = {result2}</div>
-            <div>Them Div of Two number is = {result3}</div>
+            <div>The Sum  is = {rt1}</div>
+            <div>The Sub  is = {rt2}</div>
+            <div>The Div  is = {rt3}</div>
         </div>
         <result.Provider value ={value}>
             <Child sign = '+' />
